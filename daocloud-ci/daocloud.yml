@@ -1,0 +1,32 @@
+version: 3.0
+
+## official documents http://guide.daocloud.io/dcs/daocloud-yml-9153591.html
+
+# image to use
+image: xxx:ver
+# setting up the environment variables
+env:
+  - ENV=env
+
+# define the stages for CI
+stages:
+  - test
+  - build
+  - deploy
+
+## for each stage and job
+## we need to define job
+job_name:
+  label: label # option
+  job_type: type # option, default is default
+  stage: test # option
+  image: image:ver # option
+  env: # option
+    - EE=ee
+  pull_request: false #option
+  #only: #option
+  #except: # option
+  allow_failure: false # option
+  # the script to do some thing
+  script:
+    - xxx

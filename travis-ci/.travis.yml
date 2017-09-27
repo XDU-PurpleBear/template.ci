@@ -1,0 +1,51 @@
+# YAML File for configuring TravisCI
+
+# for use the Ubuntu 14.04(trusty)
+sudo: required
+dist: trusty
+
+# cache (if needed)
+# cache:
+#   - path/to/cache/1
+#   - path/to/cache/2
+
+# testing matrix
+matrix:
+  include:
+    # config 1
+    - env: XXX=yyy
+    ## the add on which will be install
+      addons:
+        ### apt set
+        apt:
+          # details need to be found in TravisCI's document
+    # config 2
+    - env: YYY=xxx
+      # ...
+
+# services you might need
+# you can find the detail on the TravisCI official documents
+services:
+# for example, if you need docker, you need this:
+#  - docker
+
+# the *nix-shell scripts which should be run before testing or integration
+before_install:
+# or before_install |
+# you can write the script here
+# e.g.:
+# - sudo apt install python
+# or just run the script file 
+# e.g.:
+# - ./install/python.sh
+# if you set some env-variable in script, you might need use source
+# e.g.:
+# - source ./install/python.sh
+
+# the *nix-shell scripts which should be run to test codes
+script:
+## see before_install
+
+# the *nix-shell scripts which should be run after success
+after_success:
+## see before_install
